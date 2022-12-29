@@ -1,11 +1,13 @@
-import { Button } from "react-bootstrap";
+import { BrowserRouter } from 'react-router-dom';
+import Router from './Router';
+
 
 function App() {
 
   return (
-    <div>
-      qsd
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
 
