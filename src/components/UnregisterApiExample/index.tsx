@@ -3,7 +3,17 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 export default function UnregisterApiExample() {
-  const { register, handleSubmit, watch, unregister } = useForm({
+  const {
+    register,
+    handleSubmit,
+    watch,
+    unregister,
+    reset,
+    setFocus,
+    setValue,
+    getValues,
+    trigger,
+  } = useForm({
     defaultValues: {
       firstName: "",
       termsAndConditions: true,
@@ -20,14 +30,24 @@ export default function UnregisterApiExample() {
     if (!isTermsAndConditionsActive) {
       unregister("firstName");
     }
-  }, [isTermsAndConditionsActive]);
+    setFocus("firstName");
+  }, [isTermsAndConditionsActive, setFocus]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmitHandler)}>
       {isTermsAndConditionsActive && (
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>First name</Form.Label>
-          <Form.Control {...register("firstName")} type="text" />
+          <Form.Control
+            {...register("firstName", {
+              minLength: {
+                value: 10,
+                message: "Should be greater to 10",
+              },
+              required: true,
+            })}
+            type="text"
+          />
         </Form.Group>
       )}
 
@@ -39,6 +59,24 @@ export default function UnregisterApiExample() {
       </Form.Group>
 
       <Button type="submit">Submit</Button>
+      <Button type="button" className="mx-3" onClick={() => reset()}>
+        Reset
+      </Button>
+      <Button
+        type="button"
+        onClick={() => setValue("firstName", "new", { shouldValidate: true })}
+      >
+        setValue
+      </Button>
+      <Button
+        type="button"
+        className="mx-3"
+        onClick={async () => {
+          console.log("trigger validation: ", await trigger());
+        }}
+      >
+        Trigger Validation
+      </Button>
     </Form>
   );
 }
