@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import UnregisterApiExample from "../../components/UnregisterApiExample";
 import UseFormWithArguments from "../../components/UseFormWithArguments";
 
 export default function UseFormPage() {
@@ -13,7 +14,9 @@ export default function UseFormPage() {
           helper functions.
         </p>
         <h4>1. UseForm optional Arguments</h4>
-        <UseFormWithArguments />
+        <UseFormWithArguments /> <br />
+        <h4>2. Unregister Api</h4>
+        <UnregisterApiExample />
       </div>
     </Container>
   );
