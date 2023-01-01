@@ -1,4 +1,5 @@
 import HomePage from "../containers/HomePage";
+import UseFieldArrayPage from "../containers/UseFieldArrayPage";
 import UseFormContextPage from "../containers/useFormContextPage";
 import UseFormPage from "../containers/UseFormPage";
 import UseWatchPage from "../containers/useWatchPage";
@@ -24,5 +25,9 @@ export const routes: RoutesConfig[] = [
   {
     path: "useWatchPage",
     component: UseWatchPage,
+  },
+  {
+    path: "useFieldArrayPage",
+    component: UseFieldArrayPage,
   },
 ];
