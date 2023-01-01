@@ -1,6 +1,7 @@
 import HomePage from "../containers/HomePage";
 import UseFormContextPage from "../containers/useFormContextPage";
 import UseFormPage from "../containers/UseFormPage";
+import UseWatchPage from "../containers/useWatchPage";
 
 interface RoutesConfig {
   path: string;
@@ -19,5 +20,9 @@ export const routes: RoutesConfig[] = [
   {
     path: "UseFormContextPage",
     component: UseFormContextPage,
+  },
+  {
+    path: "useWatchPage",
+    component: UseWatchPage,
   },
 ];
